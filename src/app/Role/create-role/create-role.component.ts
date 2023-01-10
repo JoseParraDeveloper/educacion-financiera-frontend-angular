@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { NgToastService } from 'ng-angular-popup';
 import { Role } from 'src/app/Models/Role';
 import { RoleService } from 'src/app/Services/role.service';
 
@@ -15,7 +16,7 @@ export class CreateRoleComponent implements OnInit {
 
   role: Role = new Role();
   isEdit: boolean = false;
-  constructor(private roleService: RoleService, private router: Router) { }
+  constructor(private roleService: RoleService, private router: Router, private toast: NgToastService) { }
 
   ngOnInit(): void {
     let idRole = localStorage.getItem("idRole");
@@ -62,11 +63,11 @@ export class CreateRoleComponent implements OnInit {
   }
 
   showSuccess(details: string, summary: string) {
-    // this.toast.success({ detail: details, summary: summary, duration: 5000 });
+    this.toast.success({ detail: details, summary: summary, duration: 5000 });
   }
 
   showError() {
-    // this.toast.error({ detail: "Creación de role", summary: 'Ha ocurrido un error', sticky: true });
+    this.toast.error({ detail: "Creación de role", summary: 'Ha ocurrido un error', sticky: true });
   }
 
 }
