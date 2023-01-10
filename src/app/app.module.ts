@@ -8,6 +8,7 @@ import { FooterComponent } from './Footer/footer/footer.component';
 import { ListRolesComponent } from './Role/list-roles/list-roles.component';
 import { HttpClientModule } from '@angular/common/http';
 import { CreateRoleComponent } from './Role/create-role/create-role.component'
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import { CreateRoleComponent } from './Role/create-role/create-role.component'
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

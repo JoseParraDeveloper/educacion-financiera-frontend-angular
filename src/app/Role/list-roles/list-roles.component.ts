@@ -8,10 +8,10 @@ import { RoleService } from 'src/app/Services/role.service';
   templateUrl: './list-roles.component.html',
   styleUrls: ['./list-roles.component.css']
 })
-export class ListRolesComponent implements OnInit{
+export class ListRolesComponent implements OnInit {
 
   roles!: Role[];
-  title:string = "Roles en la aplicación";
+  title: string = "Roles en la aplicación";
 
   constructor(private roleService: RoleService, private router: Router) { }
 
@@ -30,7 +30,7 @@ export class ListRolesComponent implements OnInit{
 
   editar(role: Role): void {
     localStorage.setItem("idRole", role.id.toString());
-    this.router.navigate(["roles/create-role"]);
+    this.router.navigate(["roles-list/create-role"]);
   }
 
   delete(roleDelete: Role) {

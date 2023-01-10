@@ -16,4 +16,16 @@ export class RoleService {
   public getListRole(): Observable<Role[]> {
     return this.httpClient.get<Role[]>(`${this.localURL}/all`);
   }
+
+  public createRole(role: Role) {
+    return this.httpClient.post<Role>(`${this.localURL}/create`, role);
+  }
+
+  public getRoleById(idRole: number): Observable<Role> {
+    return this.httpClient.get<Role>(`${this.localURL}/` + idRole);
+  }
+
+  public updateRole(role: Role) {
+    return this.httpClient.put<Role>(`${this.localURL}/update`, role);
+  }
 }

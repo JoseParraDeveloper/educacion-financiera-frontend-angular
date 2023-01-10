@@ -1,1 +1,67 @@
-
+<div class="bootstrap-wrapper">
+  <div class="container">
+    <div class="row" style="margin-top: 20px">
+      <div class="col-md-6 offset-md-3">
+        <form (ngSubmit)="onSubmit()">
+          <div class="card-header text-center">
+            <h2>{{ tableTitle }}</h2>
+          </div>
+          <div class="card-body">
+            <div class="form group">
+              <div class="mb-4">
+                <label for="name" class="form-label">Nombre del rol:</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="nameRole"
+                  name="nameRole"
+                  placeholder="Ingrese el nombre del rol"
+                  [(ngModel)]="role.name"
+                  [disabled]="isEdit"
+                />
+                <div class="invalid-feedback">Este campo es requerido.</div>
+              </div>
+              <div class="mb-3">
+                <label class="form-label">Descripción:</label>
+                <textarea
+                  type="text"
+                  class="form-control"
+                  id="descriptionRol"
+                  name="descriptionRol"
+                  placeholder="Ingrese una descripción del rol"
+                  rows="3"
+                  [(ngModel)]="role.description"
+                ></textarea>
+              </div>
+            </div>
+            <div class="card-footer text-center">
+              <button
+                type="submit"
+                class="btn btn-primary btn-sm"
+                [disabled]="!isValidForm()"
+                na
+              >
+                {{ namebutton }}
+              </button>
+              <button
+                type="reset"
+                class="btn btn-primary btn-sm"
+                style="margin-left: 15px"
+                [hidden]="isEdit"
+              >
+                Restaurar
+              </button>
+              <a
+                class="btn btn-primary btn-sm"
+                routerLink=""
+                role="button"
+                style="margin-left: 15px"
+                >Cancelar
+              </a>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
