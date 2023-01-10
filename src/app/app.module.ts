@@ -9,6 +9,8 @@ import { ListRolesComponent } from './Role/list-roles/list-roles.component';
 import { HttpClientModule } from '@angular/common/http';
 import { CreateRoleComponent } from './Role/create-role/create-role.component'
 import { FormsModule } from '@angular/forms';
+import { NgToastModule } from 'ng-angular-popup';
+
 
 @NgModule({
   declarations: [
@@ -22,7 +24,9 @@ import { FormsModule } from '@angular/forms';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    NgToastModule
+  
   ],
   providers: [],
   bootstrap: [AppComponent]
