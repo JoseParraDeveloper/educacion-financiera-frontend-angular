@@ -16,16 +16,16 @@ export class ListRolesComponent implements OnInit{
   constructor(private roleService: RoleService, private router: Router) { }
 
   ngOnInit(): void {
-    throw new Error('Method not implemented.');
+    this.getAllRoles();
   }
 
 
   private getAllRoles() {
-   /* this.roleService.getListRole().subscribe(
+    this.roleService.getListRole().subscribe(
       role => {
         this.roles = role;
       }
-    );*/
+    );
   }
 
   editar(role: Role): void {

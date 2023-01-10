@@ -6,17 +6,21 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './Header/header/header.component';
 import { FooterComponent } from './Footer/footer/footer.component';
 import { ListRolesComponent } from './Role/list-roles/list-roles.component';
+import { HttpClientModule } from '@angular/common/http';
+import { CreateRoleComponent } from './Role/create-role/create-role.component'
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     FooterComponent,
-    ListRolesComponent
+    ListRolesComponent,
+    CreateRoleComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,12 +1,13 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { CreateRoleComponent } from './Role/create-role/create-role.component';
 import { ListRolesComponent } from './Role/list-roles/list-roles.component';
 
 const routes: Routes = [
   {
-    path: 'roles-list', component: ListRolesComponent
-  }
-
+    path: 'roles-list', component: ListRolesComponent, pathMatch: 'full'
+  },
+  { path: 'roles-list/create-role', component: CreateRoleComponent, pathMatch: 'full' }
 ];
 
 @NgModule({
