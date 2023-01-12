@@ -22,10 +22,14 @@ export class RoleService {
   }
 
   public getRoleById(idRole: number): Observable<Role> {
-    return this.httpClient.get<Role>(`${this.localURL}/` + idRole);
+    return this.httpClient.get<Role>(`${this.localURL}/${idRole}`);
   }
 
   public updateRole(role: Role) {
     return this.httpClient.put<Role>(`${this.localURL}/update`, role);
+  }
+
+  public deleteRoleById(idRole: number): Observable<Object> {
+    return this.httpClient.delete<Role>(`${this.localURL}/delete/${idRole}`);
   }
 }
