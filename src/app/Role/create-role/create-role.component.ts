@@ -32,6 +32,7 @@ export class CreateRoleComponent implements OnInit {
     } else {
       this.tableTitle = 'Crear role';
       this.namebutton = 'Crear';
+      this.isEdit = false;
     }
     localStorage.clear();
   }

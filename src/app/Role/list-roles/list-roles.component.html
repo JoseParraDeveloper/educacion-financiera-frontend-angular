@@ -20,9 +20,9 @@
     </thead>
     <tbody *ngFor="let role of roles">
       <tr>
-        <td align="left">{{ role.name }}</td>
-        <td align="left">{{ role.description }}</td>
-        <td>
+        <td align="center">{{ role.name }}</td>
+        <td align="center">{{ role.description }}</td>
+        <td align="center">
           <button
             (click)="editar(role)"
             class="btn btn-success"
@@ -31,8 +31,12 @@
             <i class="fa fa-pencil-square-o fa-sm" aria-hidden="true">Editar</i>
           </button>
         </td>
-        <td>
-          <button class="btn btn-danger" title="Eliminar role">
+        <td align="center">
+          <button
+            (click)="delete(role)"
+            class="btn btn-danger"
+            title="Eliminar role"
+          >
             <i class="fa fa fa-trash-o fa-sm" aria-hidden="true">Eliminar</i>
           </button>
         </td>
