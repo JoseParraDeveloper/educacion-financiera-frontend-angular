@@ -12,7 +12,7 @@ import { RoleService } from 'src/app/Services/role.service';
 export class CreateRoleComponent implements OnInit {
 
   tableTitle!: string;
-  namebutton!: string;
+  nameButton!: string;
 
   role: Role = new Role();
   isEdit: boolean = false;
@@ -27,11 +27,11 @@ export class CreateRoleComponent implements OnInit {
         }
       );
       this.tableTitle = 'Editar role';
-      this.namebutton = 'Actualizar';
+      this.nameButton = 'Actualizar';
       this.isEdit = true;
     } else {
       this.tableTitle = 'Crear role';
-      this.namebutton = 'Crear';
+      this.nameButton = 'Crear';
       this.isEdit = false;
     }
     localStorage.clear();
