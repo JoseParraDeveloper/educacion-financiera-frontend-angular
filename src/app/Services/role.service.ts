@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import baseURL from '../Helpers.ts/helperURL';
+import baseURL from '../Helpers/helperURL';
 import { Role } from '../Models/Role';
 
 @Injectable({
