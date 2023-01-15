@@ -10,6 +10,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { CreateRoleComponent } from './Role/create-role/create-role.component'
 import { FormsModule } from '@angular/forms';
 import { NgToastModule } from 'ng-angular-popup';
+import { SignupComponent } from './Signup/signup/signup.component';
 
 
 @NgModule({
@@ -18,7 +19,8 @@ import { NgToastModule } from 'ng-angular-popup';
     HeaderComponent,
     FooterComponent,
     ListRolesComponent,
-    CreateRoleComponent
+    CreateRoleComponent,
+    SignupComponent
   ],
   imports: [
     BrowserModule,

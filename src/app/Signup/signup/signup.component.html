@@ -1,0 +1,129 @@
+<div class="bootstrap-wrapper">
+  <div class="container">
+    <div class="row" style="margin-top: 20px">
+      <div class="col-md-6 offset-md-3">
+        <form (ngSubmit)="onSubmit()" class="was-validated">
+          <div class="card-header text-center">
+            <img src="../../assets/login.png" width="140" height="140" />
+            <h2>{{ titleTable }}</h2>
+          </div>
+          <div class="card-body">
+            <div class="form group">
+              <div class="mb-3">
+                <label class="form-label">Nombre de usuario:</label>
+                <input
+                  required
+                  type="text"
+                  class="form-control"
+                  id="username"
+                  name="username"
+                  placeholder="Ingrese su nombre de usuario"
+                  [(ngModel)]="user.username"
+                />
+                <div class="invalid-feedback">
+                  *Por favor, ingrese su nombre de usuario.
+                </div>
+              </div>
+              <div class="mb-3">
+                <label class="form-label">Password:</label>
+                <input
+                  required
+                  type="password"
+                  class="form-control"
+                  id="password"
+                  name="password"
+                  placeholder="Ingrese su password"
+                  [(ngModel)]="user.password"
+                />
+                <div class="invalid-feedback">
+                  *Por favor, ingrese su contraseña.
+                </div>
+              </div>
+              <div class="mb-3">
+                <label class="form-label">Nombre:</label>
+                <input
+                  required
+                  type="text"
+                  class="form-control"
+                  id="name"
+                  name="name"
+                  placeholder="Ingrese su nombre"
+                  [(ngModel)]="user.name"
+                />
+                <div class="invalid-feedback">
+                  *Por favor, ingrese su nombre.
+                </div>
+              </div>
+              <div class="mb-3">
+                <label class="form-label">Apellido:</label>
+                <input
+                  required
+                  type="text"
+                  class="form-control"
+                  id="surname"
+                  name="surname"
+                  placeholder="Ingrese su apellido"
+                  [(ngModel)]="user.surname"
+                />
+                <div class="invalid-feedback">
+                  *Por favor, ingrese su apellido.
+                </div>
+              </div>
+              <div class="mb-3">
+                <label class="form-label">Email:</label>
+                <input
+                  required
+                  type="email"
+                  class="form-control"
+                  id="email"
+                  name="email"
+                  placeholder="Ingrese su email"
+                  [(ngModel)]="user.email"
+                />
+                <div class="invalid-feedback">
+                  *Por favor, ingrese un correo electrónico correcto.
+                </div>
+              </div>
+              <div class="mb-3">
+                <label class="form-label">Teléfono:</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="telephone"
+                  name="telephone"
+                  placeholder="Ingrese su teléfono"
+                  [(ngModel)]="user.telephone"
+                />
+                <div class="valid-feedback">*Opcional.</div>
+              </div>
+            </div>
+            <div class="card-footer text-center">
+              <button
+                type="submit"
+                class="btn btn-primary btn-sm"
+                [disabled]="!isValidForm()"
+              >
+                {{ nameButton }}
+              </button>
+              <button
+                type="reset"
+                class="btn btn-primary btn-sm"
+                style="margin-left: 15px"
+              >
+                Restaurar
+              </button>
+              <a
+                class="btn btn-primary btn-sm"
+                routerLink=""
+                role="button"
+                style="margin-left: 15px"
+              >
+                Cancelar
+              </a>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
