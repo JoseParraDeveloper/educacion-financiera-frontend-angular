@@ -13,6 +13,7 @@ export class ListRolesComponent implements OnInit {
 
   roles!: Role[];
   title: string = "Roles en la aplicación";
+  showTable: boolean = true;
 
   constructor(private roleService: RoleService, private router: Router) { }
 
@@ -25,6 +26,10 @@ export class ListRolesComponent implements OnInit {
     this.roleService.getListRole().subscribe(
       role => {
         this.roles = role;
+        if (!(this.roles != null && this.roles.length > 0)) {
+          this.showTable = false;
+          this.alertInformation();
+        }
       }
     );
   }
@@ -37,6 +42,27 @@ export class ListRolesComponent implements OnInit {
   delete(roleDelete: Role) {
     this.alertConfirmation(roleDelete);
   }
+
+  alertInformation() {
+    Swal.fire({
+      title: 'No se encuentran roles creados en el sistema. ¿Desea crear un role?',
+      icon: 'info',
+      showCancelButton: true,
+      confirmButtonText: 'Si',
+      cancelButtonText: 'No',
+      confirmButtonColor: 'blue',
+      cancelButtonColor: 'red'
+    }).then((result) => {
+      if (result.value) {
+        this.router.navigate(["roles-list/create-role"]);
+      } else if (result.dismiss === Swal.DismissReason.cancel) {
+        this.router.navigate(['']);
+      }
+    });
+  }
+
+
+
 
   alertConfirmation(roleDelete: Role) {
     Swal.fire({
