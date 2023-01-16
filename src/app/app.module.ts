@@ -11,6 +11,7 @@ import { CreateRoleComponent } from './Role/create-role/create-role.component'
 import { FormsModule } from '@angular/forms';
 import { NgToastModule } from 'ng-angular-popup';
 import { SignupComponent } from './Signup/signup/signup.component';
+import { ListUsersComponent } from './Users/list-users/list-users.component';
 
 
 @NgModule({
@@ -20,7 +21,8 @@ import { SignupComponent } from './Signup/signup/signup.component';
     FooterComponent,
     ListRolesComponent,
     CreateRoleComponent,
-    SignupComponent
+    SignupComponent,
+    ListUsersComponent
   ],
   imports: [
     BrowserModule,
