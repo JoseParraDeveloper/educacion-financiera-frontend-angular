@@ -1,3 +1,4 @@
+<app-menu></app-menu>
 <div class="container">
   <h1 class="text-center">{{ title }}</h1>
   <div class="container mt-2">
@@ -5,8 +6,8 @@
       class="btn btn-primary"
       title="Registrar usuario"
       style="margin-bottom: 5px"
-      routerLink="signup"
-      ><i class="fa fa-plus-square" aria-hidden="true"></i>Registrar usuario</a
+      routerLink="/signup"
+      ><i class="fa fa-plus-square" aria-hidden="true"></i> Registrar usuario</a
     >
   </div>
   <table class="table table-hover" *ngIf="showTable">
@@ -15,7 +16,7 @@
         <th>Nombres</th>
         <th>Apellidos</th>
         <th>Roles</th>
-        <th>Actualizar roles</th>
+        <th>Actualizar</th>
         <th>Eliminar</th>
       </tr>
     </thead>
@@ -23,14 +24,16 @@
       <tr>
         <td align="center">{{ user.name }}</td>
         <td align="center">{{ user.surname }}</td>
-        <td align="center">{{ user.listRolesString }}</td>
+        <td align="center"></td>
         <td align="center">
           <button
-            (click)="actualizarRoles(user)"
+            (click)="updateUser(user)"
             class="btn btn-success"
             title="Actualizar roles"
           >
-            <i class="fa fa-pencil-square-o fa-sm" aria-hidden="true">Editar</i>
+            <i class="fa fa-pencil-square-o fa-sm" aria-hidden="true">
+              Actualizar</i
+            >
           </button>
         </td>
         <td align="center">
@@ -39,7 +42,7 @@
             class="btn btn-danger"
             title="Eliminar usuario"
           >
-            <i class="fa fa fa-trash-o fa-sm" aria-hidden="true">Eliminar</i>
+            <i class="fa fa fa-trash-o fa-sm" aria-hidden="true"> Eliminar</i>
           </button>
         </td>
       </tr>

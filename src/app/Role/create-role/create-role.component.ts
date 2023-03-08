@@ -16,6 +16,8 @@ export class CreateRoleComponent implements OnInit {
 
   role: Role = new Role();
   isEdit: boolean = false;
+
+  
   constructor(private roleService: RoleService, private router: Router, private toast: NgToastService) { }
 
   ngOnInit(): void {
@@ -41,14 +43,14 @@ export class CreateRoleComponent implements OnInit {
     if (this.isEdit) {
       this.roleService.updateRole(this.role).subscribe(
         (updateRole) => {
-          this.showSuccess('Actualización de role', 'Role ' + updateRole.name + ' fue actualizado con éxito.');
+          this.showSuccess('Actualización de role', 'Role ' + updateRole.roleEnum + ' fue actualizado con éxito.');
           this.router.navigate(['roles-list']);
         }
       );
     } else {
       this.roleService.createRole(this.role).subscribe(
         (newRole) => {
-          this.showSuccess('Creación de role', 'Role ' + newRole.name + ' fue creado con éxito.');
+          this.showSuccess('Creación de role', 'Role ' + newRole.roleEnum + ' fue creado con éxito.');
           this.router.navigate(['roles-list']);
         }, (error) => {
           this.showError();
@@ -60,7 +62,7 @@ export class CreateRoleComponent implements OnInit {
   }
 
   isValidForm(): boolean {
-    return (this.role.name != undefined && this.role.name.length > 0 && this.role.description != undefined && this.role.description.length > 0);
+    return (this.role.roleEnum != undefined && this.role.roleEnum.length > 0 && this.role.description != undefined && this.role.description.length > 0);
   }
 
   showSuccess(details: string, summary: string) {

@@ -15,23 +15,50 @@ export class SignupComponent implements OnInit {
   titleTable!: string;
   nameButton!: string;
   mensajeValidacionEmail: string = "";
+  isEdit: boolean = false;
 
   constructor(private userService: UserService, private router: Router, private toast: NgToastService) { }
 
   ngOnInit(): void {
-    this.titleTable = "Registrate aquí";
-    this.nameButton = "Registrar";
-
+    let idUser = localStorage.getItem("idUser");
+    if (idUser != null) {
+      this.userService.getUserById(Number(idUser)).subscribe(
+        updateUser => {
+          this.user = updateUser;
+          this.isEdit = true;
+        }
+      );
+      this.titleTable = "Actualización del usuario";
+      this.nameButton = "Actualizar";
+    } else {
+      this.titleTable = "Registrate aquí";
+      this.nameButton = "Registrar";
+    }
+    localStorage.clear();
   }
 
   onSubmit(): void {
-    this.userService.registerUser(this.user).subscribe(
-      newUser => {
-        this.showSuccess('Registro de usuario', 'El usuario ' + newUser.name + ' fue registrado con éxito.');
-        this.router.navigate(['']);
-      }
-    );
-  };
+    if (this.isEdit) {
+      this.userService.updateUser(this.user).subscribe(
+        (updateUser) => {
+          this.showSuccess('Actualización de usuario', 'El usuario ' + updateUser.name + ' fue actualizado con éxito.');
+          this.router.navigate(['list-users']);
+        }, (error) => {
+          this.showError('Actualización de usuario', 'Error al actualizar el usuario. Username y/o Email ya existen.');
+        }
+      );
+    } else {
+      this.userService.registerUser(this.user).subscribe(
+        newUser => {
+          this.showSuccess('Registro de usuario', 'El usuario ' + newUser.name + ' fue registrado con éxito.');
+          this.router.navigate(['']);
+        }, (error) => {
+          this.showError('Registro de usuario', 'Error al registrar el usuario. Username y/o Email ya existen.');
+        }
+      );
+    }
+
+  }
 
   isValidoEmail(): boolean {
     let isValidoEmail: boolean = true;
@@ -56,7 +83,6 @@ export class SignupComponent implements OnInit {
   }
 
   showError(details: string, summary: string) {
-    this.toast.error({ detail: details, summary: summary, sticky: true, duration: 5000 });
+    this.toast.error({ detail: details, summary: summary, duration: 5000 });
   }
-
 }

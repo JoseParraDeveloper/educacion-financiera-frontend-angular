@@ -1,3 +1,4 @@
+<app-menu></app-menu>
 <div class="container">
   <h1 class="text-center">{{ title }}</h1>
   <div class="container mt-2">
@@ -5,8 +6,8 @@
       class="btn btn-primary"
       title="Crear role"
       style="margin-bottom: 5px"
-      routerLink="create-role"
-      ><i class="fa fa-plus-square" aria-hidden="true"></i>Crear role</a
+      routerLink="/create-role"
+      ><i class="fa fa-plus-square" aria-hidden="true"></i> Crear role</a
     >
   </div>
   <table class="table table-hover" *ngIf="showTable">
@@ -14,13 +15,13 @@
       <tr class="text-center">
         <th>Nombre</th>
         <th>Descripción</th>
-        <th>Editar</th>
+        <th>Actualizar</th>
         <th>Eliminar</th>
       </tr>
     </thead>
     <tbody *ngFor="let role of roles">
       <tr>
-        <td align="center">{{ role.name }}</td>
+        <td align="center">{{ role.roleEnum }}</td>
         <td align="center">{{ role.description }}</td>
         <td align="center">
           <button
@@ -28,7 +29,7 @@
             class="btn btn-success"
             title="Editar role"
           >
-            <i class="fa fa-pencil-square-o fa-sm" aria-hidden="true">Editar</i>
+            <i class="fa fa-pencil-square-o fa-sm" aria-hidden="true">Actualizar</i>
           </button>
         </td>
         <td align="center">

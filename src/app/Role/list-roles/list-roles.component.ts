@@ -12,7 +12,7 @@ import Swal from 'sweetalert2'
 export class ListRolesComponent implements OnInit {
 
   roles!: Role[];
-  title: string = "Roles en la aplicación";
+  title: string = "Roles";
   showTable: boolean = true;
 
   constructor(private roleService: RoleService, private router: Router) { }
@@ -36,7 +36,7 @@ export class ListRolesComponent implements OnInit {
 
   editar(role: Role): void {
     localStorage.setItem("idRole", role.id.toString());
-    this.router.navigate(["roles-list/create-role"]);
+    this.router.navigate(["/create-role"]);
   }
 
   delete(roleDelete: Role) {
@@ -66,7 +66,7 @@ export class ListRolesComponent implements OnInit {
 
   alertConfirmation(roleDelete: Role) {
     Swal.fire({
-      title: '¿Estas seguro de eliminar el ' + roleDelete.name + ' de la aplicación?',
+      title: '¿Estas seguro de eliminar el ' + roleDelete.roleEnum + ' de la aplicación?',
       text: 'Este proceso es irreversible.',
       icon: 'warning',
       showCancelButton: true,
