@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { User } from 'src/app/Models/User';
 import { UserService } from 'src/app/Services/user.service';
 import Swal from 'sweetalert2';
@@ -10,11 +11,11 @@ import Swal from 'sweetalert2';
 })
 export class ListUsersComponent implements OnInit {
 
-  title: string = "Usuarios en la aplicación";
+  title: string = "Usuarios";
   showTable: boolean = true;
   users!: User[];
 
-  constructor(private userService: UserService) {
+  constructor(private userService: UserService, private router: Router) {
 
   }
 
@@ -34,8 +35,10 @@ export class ListUsersComponent implements OnInit {
     );
   }
 
-  actualizarRoles(user: User) {
-
+  updateUser(user: User) {
+    localStorage.clear();
+    localStorage.setItem("idUser", user.id.toString());
+    this.router.navigate(["/signup"]);
   }
 
   deleteUser(user: User) {

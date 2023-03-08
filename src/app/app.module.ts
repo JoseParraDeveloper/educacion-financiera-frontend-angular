@@ -12,6 +12,11 @@ import { FormsModule } from '@angular/forms';
 import { NgToastModule } from 'ng-angular-popup';
 import { SignupComponent } from './Signup/signup/signup.component';
 import { ListUsersComponent } from './Users/list-users/list-users.component';
+import { LoginComponent } from './login/login.component';
+import { MenuComponent } from './menu/menu.component';
+import { IndexComponent } from './index/index.component';
+import { HomeComponent } from './home/home.component';
+import { interceptProvider } from './interceptors/user-interceptor.service';
 
 
 @NgModule({
@@ -22,7 +27,11 @@ import { ListUsersComponent } from './Users/list-users/list-users.component';
     ListRolesComponent,
     CreateRoleComponent,
     SignupComponent,
-    ListUsersComponent
+    ListUsersComponent,
+    LoginComponent,
+    MenuComponent,
+    IndexComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
@@ -32,7 +41,7 @@ import { ListUsersComponent } from './Users/list-users/list-users.component';
     NgToastModule
   
   ],
-  providers: [],
+  providers: [interceptProvider],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

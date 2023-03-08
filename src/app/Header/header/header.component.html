@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <div class="container-fluid">
-    <a class="navbar-brand" routerLink="" routerLinkActive="active"
+    <a class="navbar-brand" routerLink="/home" routerLinkActive="active"
       ><img src="../../assets/educacion-financiera.jpg" width="60" height="60"
     /></a>
     <button
@@ -17,9 +17,11 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="#">HOME</a>
+          <a class="nav-link active" aria-current="page" routerLink="/home"
+            >HOME</a
+          >
         </li>
-        <li class="nav-item dropdown">
+        <li class="nav-item dropdown" *ngIf="isAdmin">
           <a
             class="nav-link dropdown-toggle"
             href="#"
@@ -31,26 +33,43 @@
             ADMINISTRACIÓN
           </a>
           <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <li><a class="dropdown-item" routerLink="list-roles">Roles</a></li>
+            <li><a class="dropdown-item" routerLink="/list-roles">Roles</a></li>
             <li><hr class="dropdown-divider" /></li>
-            <li><a class="dropdown-item" routerLink="list-users">Users</a></li>
+            <li>
+              <a class="dropdown-item" routerLink="/list-users">Usuarios</a>
+            </li>
           </ul>
         </li>
       </ul>
       <div class="form-inline my-2 my-lg-0">
-        <a class="btn btn-outline-primary btn-sm mr-sm-2">LOGIN</a>
-        <a
+        <button
+          *ngIf="!isLogged"
+          class="btn btn-outline-primary btn-sm mr-sm-2"
+          routerLink="/login"
+        >
+          <i class="fa fa-sign-in" aria-hidden="true"></i> LOGIN
+        </button>
+        <button
+          *ngIf="!isLogged"
           class="btn btn-outline-primary btn-sm my-2 my-sm-0"
           style="margin-left: 15px"
-          routerLink="signup"
+          routerLink="/signup"
         >
-          REGISTRAR</a
-        >
-        <a
+          <i class="fa fa-registered" aria-hidden="true"></i> REGISTRAR
+        </button>
+
+        <span class="navbar-text">
+          <label *ngIf="isLogged">{{ username }}</label>
+        </span>
+
+        <button
+          *ngIf="isLogged"
           class="btn btn-outline-primary btn-sm mr-sm-2"
           style="margin-left: 15px"
-          >LOGOUT</a
+          (click)="onLogOut()"
         >
+          <i class="fa fa-sign-out" aria-hidden="true"></i> LOGOUT
+        </button>
       </div>
     </div>
   </div>

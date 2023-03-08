@@ -1,3 +1,4 @@
+<app-menu></app-menu>
 <div class="bootstrap-wrapper">
   <div class="container">
     <div class="row" style="margin-top: 20px">
@@ -16,7 +17,7 @@
                   id="nameRole"
                   name="nameRole"
                   placeholder="Ingrese el nombre del rol"
-                  [(ngModel)]="role.name"
+                  [(ngModel)]="role.roleEnum"
                   [disabled]="isEdit"
                 />
                 <div class="invalid-feedback">Este campo es requerido.</div>
@@ -52,7 +53,7 @@
               </button>
               <a
                 class="btn btn-primary btn-sm"
-                routerLink=""
+                routerLink="/list-roles"
                 role="button"
                 style="margin-left: 15px"
                 >Cancelar
