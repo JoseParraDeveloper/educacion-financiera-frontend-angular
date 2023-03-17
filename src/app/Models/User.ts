@@ -8,4 +8,5 @@ export class User {
     telephone!: string;
     authorities!: string[];
     active!: boolean;
+    image!: string;
 }

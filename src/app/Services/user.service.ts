@@ -17,6 +17,10 @@ export class UserService {
     return this.httpClient.post<User>(`${this.localURL}/register`, newUser);
   }
 
+  public getUserByUsername(username: string): Observable<User> {
+    return this.httpClient.get<User>(`${this.localURL}/username/${username}`);
+  }
+
   public getListUser(): Observable<User[]> {
     return this.httpClient.get<User[]>(`${this.localURL}/all`);
   }
