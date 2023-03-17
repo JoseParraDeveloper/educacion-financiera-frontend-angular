@@ -1,0 +1,3 @@
+;
+/* module-key = 'com.atlassian.jira.plugins.jira-workflow-designer:workflow-designer-browser-is-supported', location = 'workflow-designer-module/js/browserIsSupported.js' */
+define("workflow-designer/browser-support",["jira/util/navigator"],function(r){return{browserIsSupported:function(){return!(r.isIE()&&parseInt(r.majorVersion(),10)<10)}}}),AJS.namespace("JIRA.WorkflowDesigner.browserIsSupported",null,require("workflow-designer/browser-support").browserIsSupported);;

@@ -5,8 +5,8 @@
       <div class="col-md-6 offset-md-3">
         <form (ngSubmit)="onSubmit()" class="was-validated">
           <div class="card-header text-center">
-            <img src="../../assets/login.png" width="140" height="140" />
-            <h2>{{ titleTable }}</h2>
+            <img [src]="imageLogin" width="140" height="140" />
+            <h1>{{ titleTable }}</h1>
           </div>
           <div class="card-body">
             <div class="form group">
@@ -97,11 +97,26 @@
                 />
                 <div class="valid-feedback">*Opcional.</div>
               </div>
+              <label class="form-label">Foto:</label>
+              <div class="mb-3">
+                <div class="file-select" id="photo">
+                  <input
+                    type="file"
+                    name="photo"
+                    (change)="capturarFile($event)"
+                  />
+                </div>
+                <div *ngIf="imgCodifiedBase64" style="margin-top: 20px">
+                  <img width="200px" [src]="imgCodifiedBase64" />
+                </div>
+              </div>
+              <div class="valid-feedback">*Opcional.</div>
             </div>
+
             <div class="card-footer text-center">
               <button
                 type="submit"
-                class="btn btn-primary btn-sm"
+                class="btn btn-primary btn-lg"
                 [disabled]="!isValidForm()"
               >
                 {{ nameButton }}
@@ -109,13 +124,13 @@
               <button
                 *ngIf="!isEdit"
                 type="reset"
-                class="btn btn-primary btn-sm"
+                class="btn btn-primary btn-lg"
                 style="margin-left: 15px"
               >
                 Restaurar
               </button>
               <a
-                class="btn btn-primary btn-sm"
+                class="btn btn-primary btn-lg"
                 routerLink=""
                 role="button"
                 style="margin-left: 15px"

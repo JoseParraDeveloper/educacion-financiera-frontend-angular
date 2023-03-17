@@ -1,0 +1,3 @@
+;
+/* module-key = 'com.atlassian.jira.plugins.jira-workflow-designer:workflow-designer-loader', location = 'workflow-designer-module/js/require.js' */
+define("workflow-designer/application-loader",["wrm/require","require"],function(r,e){return{load:function(i){return r(["wrc!com.atlassian.jira.plugins.jira-workflow-designer.workflow-designer"],function(){i&&i(e("workflow-designer/application"))})}}}),AJS.namespace("JIRA.WorkflowDesigner.require",null,require("workflow-designer/application-loader").load);;

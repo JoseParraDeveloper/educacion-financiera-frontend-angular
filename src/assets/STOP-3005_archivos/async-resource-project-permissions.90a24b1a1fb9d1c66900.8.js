@@ -1,0 +1,2 @@
+try{window.performance.mark("async-resource-project-permissions.js:eval-start")}catch(e){}(window.webpackJsonp=window.webpackJsonp||[]).push([["async-resource-project-permissions"],{V4pv:function(s,e,r){"use strict";r.r(e),e.default=()=>Object(r("DycT").a)("/rest/internal/2/projectpermissions")}}]);try{window.__jsEvalStop("async-resource-project-permissions.js")}catch(e){}
+//# sourceMappingURL=https://statlas.prod.atl-paas.net/jira-frontend-source-maps/assets/async-resource-project-permissions.90a24b1a1fb9d1c66900.8.js.map
